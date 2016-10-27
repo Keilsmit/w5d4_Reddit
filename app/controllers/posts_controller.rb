@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
 
     def index
-      @post = Post.all
+      @posts = Post.order(vote: :desc)
     end
 
     def show
@@ -34,6 +34,25 @@ class PostsController < ApplicationController
       @post.save
       redirect_to root_path
     end
+
+
+    def upvote
+      @post = Post.find(params[:id])
+      @post.vote +=1
+      @post.save
+      redirect_to root_path
+    end
+
+
+    def downvote
+      @post = Post.find(params[:id])
+      @post.vote -=1
+      @post.save
+      redirect_to root_path
+    end
+
+
+
 
 
   private
