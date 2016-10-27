@@ -1,0 +1,25 @@
+<div class="text-center">
+  <h4>TIY-Reddit Project</h4>
+  <br>
+  <br>
+</div>
+
+<%= link_to "New Post", new_post_path %>
+
+<table class="table table-bordered table-striped table-hover text-center">
+  <tr class="text-center">
+    <th scope="col">Total Votes</th>
+    <th scope="col">Vote</th>
+    <th scope="col">Title</th>
+    <th scope="col">User</th>
+  </tr>
+
+  <% @post.each do |post| %>
+    <tr>
+      <td><%= post.vote %></td>
+      <td><%= link_to '<button type="button">Like</button>'.html_safe, new_post_path %></td>
+      <td><%= link_to post.title, post.link %></td>
+      <td><%= post.user %></td>
+    </tr>
+  <%end%>
+</table>
