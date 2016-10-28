@@ -17,7 +17,8 @@ class PostsController < ApplicationController
       @post = Post.new(post_params)
       @post.user = params[:post][:user]
       @post.link = params[:post][:link]
-      @post.vote +=1
+      @post.summary = params[:post][:summary]
+      @post.vote =1
 
       @post.save
       redirect_to root_path
@@ -51,6 +52,16 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
 
+    def title_vote
+      @post = Post.find(params[:id])
+      @post.vote +=1
+      @post.save
+      redirect_to @post.link
+    end
+
+    def summary
+      @post = Post.find(params[:id])
+    end
 
 
 
