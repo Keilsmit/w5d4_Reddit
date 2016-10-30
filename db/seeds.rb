@@ -12,7 +12,7 @@
   title: Faker::GameOfThrones.character,
   link: Faker::Internet.url,
   user: Faker::Name.name_with_middle,
-  summary: " ",
+  summary: Faker::Hipster.sentence,
   vote: rand(3..150)
 )
 end

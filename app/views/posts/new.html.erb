@@ -1,20 +1,31 @@
-<%= form_for @post do |f| %>
+
+
+
+
+
+
+
+
+
+<%= bootstrap_form_for(@post, layout: :inline) do |f| %>
    <div>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, hide_label: true, required: true %>
    </div>
    <div>
      <%= f.label :link %>
-     <%= f.text_field :link%>
+     <%= f.text_field :link, hide_label: true,required: true, placeholder: "www.example.com" %>
    </div>
    <div>
      <%= f.label :User %>
-     <%= f.text_field :user %>
+     <%= f.text_field :user, hide_label: true,required: true %>
    </div>
    <div>
-     <%= f.label :summary %>
-     <%= f.text_area :summary %>
+     <!-- <%= f.label :summary %> -->
+     <%= f.text_area :summary, hide_label: true, placeholder: "Leave a comment..."  %>
    </div>
 
-  <%= f.submit %>
- <% end %>
+   <div>
+     <%= f.submit 'Submit', :class => 'submit_class_name_here' %>
+  </div> 
+<% end %>

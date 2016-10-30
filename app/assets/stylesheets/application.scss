@@ -1,2 +1,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+label.required:after {
+  content:" *";
+}
+
+#text_color {
+  color: #d3d3d3;
+}
+
+#user_color {
+  color: #bcd4e6;
+}
+
+
+#summary_color {
+  color: #536872;
+}
+
+
+
+footer {
+  background-color: #003366;
+  display: block;
+  height: 90px;
+  padding-top: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -0px;
+}
+
+
+footer .breadcrumb {
+  background-color: transparent;
+}
+
+footer p {
+  color: white;
+  text-align: left;
+  padding: 15px;
+}
+
+footer a{
+  color: #ffffff;
+}
+
+footer ol {
+  text-align: center;
+}

@@ -16,9 +16,10 @@ class PostsController < ApplicationController
     def create
       @post = Post.new(post_params)
       @post.user = params[:post][:user]
+      @post.user = params[:post][:user]
       @post.link = params[:post][:link]
       @post.summary = params[:post][:summary]
-      @post.vote =1
+      @post.vote = 1
 
       @post.save
       redirect_to root_path
@@ -63,13 +64,17 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
+    def number
+      @index +=1
+    end
+
 
 
 
   private
 
     def post_params
-      params.require(:post).permit(:vote, :Title)
+      params.require(:post).permit(:vote, :title, :link, :summary, :user)
     end
 
 end
