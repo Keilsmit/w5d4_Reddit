@@ -6,12 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(
+  username: Faker::Internet.user_name('Nancy Johnson', %w(. _ -)),
+  email_address: Faker::Internet.free_email,
+  password: Faker::Internet.password(8)
+  )
 
 25.times do
   Post.create(
   title: Faker::GameOfThrones.character,
   link: Faker::Internet.url,
-  user: Faker::Name.name_with_middle,
+  user_id: user.id,
   summary: Faker::Hipster.sentence,
   vote: rand(3..150)
 )

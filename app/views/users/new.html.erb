@@ -1,0 +1,37 @@
+
+<%= bootstrap_form_for(@user, layout: :inline) do |f| %>
+  <div class="text-center">
+    <h1> Create a New User</h1>
+    <br>
+    <br>
+    <br>
+  </div>
+
+<br>
+<br>
+
+
+<div class="text-center">
+<%= f.label :username %>
+<%= f.text_field :username, hide_label: true, required: true %></div>
+
+<br>
+<div class="text-center">
+<%= f.label :email_address %>
+<%= f.text_field :email_address, hide_label: true,required: true, placeholder: "johndoe@yahoo.com" %></div>
+
+<br>
+<div class="text-center">
+<%= f.label :password %>
+<%= f.password_field :password, hide_label: true,required: true %></div>
+
+<br>
+<br>
+<div class="text-center">
+<%= f.submit 'Submit', :class => 'submit_class_name_here' %><br>
+</div>
+
+<br>
+<br>
+<br>
+<% end %>

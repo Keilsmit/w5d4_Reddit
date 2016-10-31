@@ -24,16 +24,6 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
 
-    def create
-      @post = Post.new(post_params)
-      @post.user = params[:post][:user]
-      @post.link = params[:post][:link]
-      @post.summary = params[:post][:summary]
-      @post.vote = 1
-
-      @post.save
-      redirect_to root_path
-    end
 
     def update
       @post = Post.find(params[:id])
@@ -74,9 +64,6 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def number
-      @index +=1
-    end
 
 
 

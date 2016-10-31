@@ -21,6 +21,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'bootstrap_form'
 
+gem 'bcrypt'
+
 gem 'faker'
 
 gem 'rails_12factor', group: :production

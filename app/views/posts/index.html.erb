@@ -38,7 +38,7 @@
 
           <div>
             <h6 id="text_color">Posted on <%= post.created_at.strftime('%m/%d/%Y at %H:%M:%S')%> by <em id=
-            "user_color"><a href="#" id="user_color"><%= post.user %></a></em></h6>
+            "user_color"><a href="#" id="user_color"><%= post.user.username %></a></em></h6>
           </div>
                 </td>
               </tr>
@@ -49,19 +49,37 @@
 
     <div class="col-sm-4">
 
-      <div>
-        <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-envelope"> New-Post </button>'.html_safe, new_post_path %>
-      </div>
+
+      <% if current_user %>
+        <p>
+          Hi, <%= current_user.username %>
+        </p>
+          <div>
+            <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-envelope"> New_Post </button>'.html_safe, new_post_path %>
+          </div>
+
+
+          <div>
+            <%= link_to '<button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-envelope"> Sign_In </button>'.html_safe, new_session_path %>
+          </div>
+
+      <% else %>
+        <%= link_to "Sign up!", :new_user %>
+        <%= link_to "Log In!", :new_session %>
+      <% end %>
+
+
 
       <div>
-        <%= link_to '<button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-user"> New-User</button>'.html_safe, new_post_path %>
-        <br>
-        <br>
-        <br>
-        <br>
+        <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-user"> New_User</button>'.html_safe, new_user_path %>
       </div>
 
+
       <div>
+        <br>
+        <br>
+        <br>
+        <br>
         <img src="http://i.giphy.com/cynYth6BKLDHO.gif" class="img-rounded center-block">
         <br>
         <br>
