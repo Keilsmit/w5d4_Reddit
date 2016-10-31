@@ -16,6 +16,16 @@ class PostsController < ApplicationController
     def create
       @post = Post.new(post_params)
       @post.user = params[:post][:user]
+      @post.link = params[:post][:link]
+      @post.summary = params[:post][:summary]
+      @post.vote = 1
+
+      @post.save
+      redirect_to root_path
+    end
+
+    def create
+      @post = Post.new(post_params)
       @post.user = params[:post][:user]
       @post.link = params[:post][:link]
       @post.summary = params[:post][:summary]

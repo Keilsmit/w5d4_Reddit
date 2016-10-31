@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-20.times do
+25.times do
   Post.create(
   title: Faker::GameOfThrones.character,
   link: Faker::Internet.url,
