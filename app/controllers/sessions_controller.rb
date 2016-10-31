@@ -22,7 +22,11 @@ class SessionsController < ApplicationController
     end
   end
 
-
+  def destroy
+      session[:user_id] = nil
+      flash[:success] = "You've been loggged out."
+      redirect_to :root
+  end
 
 
 
