@@ -24,16 +24,18 @@
           <%=  %>
         </td>
         <td>
+          <div class="btn-block">
           <% if current_user %>
-              <%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-up"></button>'.html_safe, upvote_post_path(post) %>
+              <%= link_to '<button type="button" class="glyphicon glyphicon-chevron-up"></button>'.html_safe, upvote_post_path(post) %>
 
               <%= post.vote %>
 
-              <%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-down"></button>'.html_safe, downvote_post_path(post)%>
+              <%= link_to '<button type="button" class="glyphicon glyphicon-chevron-down"></button>'.html_safe, downvote_post_path(post)%>
           <% else %>
               <%= post.vote %>
 
           <% end %>
+        </div>
         </td>
 
         <td>
@@ -65,19 +67,32 @@
         </p>
           <div>
             <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-envelope"> New_Post </button>'.html_safe, new_post_path %>
+            <br>
           </div>
 
 
           <div>
             <%=  link_to '<button type="button"  class="btn btn-danger btn-lg btn-block"> Log Out</button>'.html_safe, logout_path %>
+            <br>
           </div>
 
 
       <% else %>
+        <div>
+          <%= link_to " Log In!", :new_session, class:"btn btn-default btn-lg btn-block glyphicon glyphicon-envelope" %>
+          <br>
+      </div>
 
-        <%= link_to "Log In!", :new_session, class:"btn btn-default btn-lg btn-block glyphicon glyphicon-envelope" %>
+        <div>
+          <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-user"> Sign Up</button>'.html_safe, new_user_path %>
+          <br>
+        </div>
 
-        <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-user"> Sign Up</button>'.html_safe, new_user_path %>
+        <div class="text-center">
+          <h6> Sign Up or Log In to create posts and vote!</h6>
+          <br>
+          <br>
+        </div>
 
       <% end %>
 
