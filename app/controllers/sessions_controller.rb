@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+  before_action :forbid_login, only: [:new, :create]
 
   def new
   end
