@@ -18,11 +18,9 @@ class PostsController < ApplicationController
       @post = Post.new(post_params)
       @post.user = current_user
       @post.vote = 1
-
       @post.save!
       redirect_to root_path
     end
-
 
     def update
       @post = Post.find(params[:id])
@@ -36,14 +34,12 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
 
-
     def upvote
       @post = Post.find(params[:id])
       @post.vote +=1
       @post.save
       redirect_to root_path
     end
-
 
     def downvote
       @post = Post.find(params[:id])
@@ -62,10 +58,6 @@ class PostsController < ApplicationController
     def summary
       @post = Post.find(params[:id])
     end
-
-
-
-
 
   private
 

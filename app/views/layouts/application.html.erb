@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>W5d4Reddit</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>W5d4Reddit</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
+    <body>
 
+        <% if flash.any? %>
+        <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %>" role="alert">
+            <p>
+                <%= message %>
+            </p>
+        </div>
+        <% end %>
+        <% end %>
 
-  <body>
+        <%= yield %>
+    </body>
 
+    <footer class="row">
+        <div class="col-sm-8">
+            <p>The Iron Yard
+                <a href="#" alt="copy right">Copy Right</a>
+                2016, All Rights Reserved</p>
+        </div>
 
-    <% if flash.any? %>
-      <% flash.each do |key, message| %>
-      <div class="alert alert-<%= key %>" role="alert">
-        <p>
-          <%= message %>
-        </p>
-      </div>
-      <% end %>
-    <% end %>
-
-
-    <%= yield %>
-  </body>
-
-
-  <footer class="row">
-      <div class="col-sm-8">
-        <p>The Iron Yard <a href="#" alt="copy right">Copy Right</a> 2016, All Rights Reserved</p>
-      </div>
-
-      <div class="col-sm-4">
-        <ol class="breadcrumb">
-          <h4><%=link_to "Home", root_path %></h4>
-        </ol>
-      </div>
+        <div class="col-sm-4">
+            <ol class="breadcrumb">
+                <h4><%=link_to "Home", root_path %></h4>
+            </ol>
+        </div>
     </footer>
-
-
-
 
 </html>

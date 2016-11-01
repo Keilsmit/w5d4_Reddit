@@ -10,16 +10,15 @@
     username: Faker::Superhero.name,
     email_address: Faker::Internet.free_email,
     password: Faker::Internet.password(8)
-    )
+  )
 end
-
 
 25.times do
   Post.create(
-  title: Faker::GameOfThrones.character,
-  link: Faker::Internet.url,
-  user: User.find(rand(1..25)),
-  summary: Faker::Hipster.sentence,
-  vote: rand(3..150)
-)
+    title: Faker::GameOfThrones.character,
+    link: Faker::Internet.url,
+    user: User.sample(rand(1..25)),
+    summary: Faker::Hipster.sentence,
+    vote: rand(3..150)
+  )
 end
