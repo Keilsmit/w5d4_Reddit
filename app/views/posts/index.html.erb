@@ -24,7 +24,16 @@
           <%=  %>
         </td>
         <td>
-          <%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-up"></button>'.html_safe, upvote_post_path(post) %><%= post.vote %><%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-down"></button>'.html_safe, downvote_post_path(post) %>
+          <% if current_user %>
+              <%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-up"></button>'.html_safe, upvote_post_path(post) %>
+
+              <%= post.vote %>
+
+              <%= link_to '<button type="button" class="glyphicon glyphicon-thumbs-down"></button>'.html_safe, downvote_post_path(post)%>
+          <% else %>
+              <%= post.vote %>
+
+          <% end %>      
         </td>
 
         <td>
