@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   resources :users
   root 'posts#index'
   resources :posts do
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create]
   get '/logout' => 'sessions#destroy', as: :logout
+
+  resources :tags, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
