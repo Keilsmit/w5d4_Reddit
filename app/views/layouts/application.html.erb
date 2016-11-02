@@ -19,8 +19,94 @@
         </div>
         <% end %>
         <% end %>
+        <div class="text-center">
+            <h1>My Reddit Page</h1>
+            <h6>An Iron Yard (Ruby on Rails) Project</h6>
+            <br>
+            <br>
+        </div>
 
-        <%= yield %>
+        <div class="container-fluid table_box">
+            <main class="row">
+                <div class="col-sm-8">
+                    <!-- Main left section begins here -->
+                    <!-- Table/data starts here  -->
+                    <table class="table table-striped table-hover text-center table-responsive">
+                        <tr class="text-center">
+                            <th scope="col" class="text-center">Vote</th>
+                            <th scope="col" class="text-center">Post</th>
+                        </tr>
+
+                          <%= yield %>
+
+                    </table>
+                </div>
+
+  <div class="col-sm-4">
+      <% if current_user %>
+        <p>
+            Hi,
+            <%= current_user.username %>
+        </p>
+        <div>
+            <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-envelope"> New Post </button>'.html_safe, new_post_path %>
+            <br>
+        </div>
+
+        <div>
+            <%=  link_to '<button type="button"  class="btn btn-danger btn-lg btn-block"> Log Out</button>'.html_safe, logout_path %>
+            <br>
+        </div>
+
+  <% else %>
+        <div>
+            <%= link_to " Log In!", :new_session, class:"btn btn-default btn-lg btn-block glyphicon glyphicon-envelope" %>
+            <br>
+        </div>
+
+        <div>
+            <%= link_to '<button type="button" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-user"> Sign Up</button>'.html_safe, new_user_path %>
+            <br>
+        </div>
+
+        <div class="text-center">
+            <h6>
+                Sign Up or Log In to create posts and vote!</h6>
+            <br>
+            <br>
+        </div>
+
+      <% end %>
+
+      <div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <img src="http://i.giphy.com/cynYth6BKLDHO.gif" class="img-rounded center-block">
+          <br>
+          <br>
+          <br>
+      </div>
+
+      <div>
+          <img src="http://i.giphy.com/cr8wVsvUOtC1O.gif" class="img-rounded center-block">
+          <br>
+          <br>
+          <br>
+      </div>
+
+      <div>
+          <img src="http://i.giphy.com/4lcuB232BQGha.gif" class="img-rounded center-block">
+      </div>
+
+  </div>
+  <!-- End of left col -->
+
+</main>
+</div>
+<!-- End of Container Div -->
+
     </body>
 
     <footer class="row">

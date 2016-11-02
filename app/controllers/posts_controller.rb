@@ -18,9 +18,19 @@ class PostsController < ApplicationController
       @post = Post.new(post_params)
       @post.user = current_user
       @post.vote = 1
-      @post.save!
-      redirect_to root_path
+      if @post.save!
+         tag_names = params[:post][:tag_names].split(",")
+         tag_names = tag_names.collect(&:strip)
+         tag_names.each do |name|
+           @post.tags << Tag.find_or_initialize_by(body: name)
+         end
+        flash[:success] = "Your post is posted!"
+        redirect_to root_path
+      else
+        render :new
+      end
     end
+
 
     def update
       @post = Post.find(params[:id])
@@ -58,6 +68,12 @@ class PostsController < ApplicationController
     def summary
       @post = Post.find(params[:id])
     end
+
+
+
+
+
+
 
   private
 

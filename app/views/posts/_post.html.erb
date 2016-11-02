@@ -1,0 +1,44 @@
+
+
+<tr>
+    <td>
+        <div class="span9 btn-block no-padding">
+            <% if current_user %>
+            <%= link_to '<button type="button" class="glyphicon glyphicon-chevron-up"></button>'.html_safe, upvote_post_path(post) %>
+
+            <%= post.vote %>
+
+            <%= link_to '<button type="button" class="glyphicon glyphicon-chevron-down"></button>'.html_safe, downvote_post_path(post)%>
+        <% else %>
+            <%= post.vote %>
+
+            <% end %>
+        </div>
+    </td>
+
+    <td>
+        <div>
+            <h4><%= link_to post.title, title_vote_post_path(post)%></h4>
+        </div>
+
+        <div>
+            <h5 class="summary_color"><%= post.summary %></h5>
+        </div>
+
+        <div>
+            <h6 id="text_color">Posted on
+                <%= post.created_at.strftime('%m/%d/%Y at %H:%M:%S')%>
+                by
+                <em id="user_color">
+                    <a href="#" id="user_color"><%= post.user.username %></a>
+                </em>
+            </h6>
+        </div>
+        <div>
+            <% post.tags.each do |f| %>
+              <%= link_to "#{f.body}", tag_path(f)%>
+            <%end%>
+        </div>
+
+    </td>
+</tr>
